@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>INSTA-APP</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('title' , 'INSTA-APP')
+
+@section('content')
+    {{-- {{print_r($data)}}   --}}
     <h1>Instagram Clone App</h1>
-</body>
-</html>
+    <h4>Welcome Mr: {{$name}}</h4>
+    <h3>Your Id: {{$id}}</h3>
+
+    <p>Index Page</p>
+    
+@endsection

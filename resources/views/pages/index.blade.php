@@ -2,11 +2,13 @@
 @section('title' , 'INSTA-APP')
 
 @section('content')
-    {{-- {{print_r($data)}}   --}}
-    <h1>Instagram Clone App</h1>
-    <h4>Welcome Mr: {{$name}}</h4>
-    <h3>Your Id: {{$id}}</h3>
-
-    <p>Index Page</p>
-    
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Hello, world!</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Login</a>
+            <a class="btn btn-success btn-lg" href="#" role="button">Register</a>
+        </div>
+    </div>
 @endsection

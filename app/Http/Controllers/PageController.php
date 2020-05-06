@@ -33,6 +33,10 @@ class PageController extends Controller
     }
     public function service()
     {
-        return \view('pages.services');
+        $data = array(
+            'title' =>'Services',
+            'services' => ['Web Design' , 'Programming' , 'SEO' , 'Graphic Desgin']
+        );
+        return \view('pages.services')->with($data);
     }
 }

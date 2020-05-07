@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
-
+use DB;
 class PostController extends Controller
 {
     /**
@@ -14,7 +14,15 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        // Fetch all posts from DB
+
+        // $posts = Post::all();
+        // $posts = Post::orderBy('id' , 'desc')->get();
+        // $posts = Post::where('id' , '2')->get();
+        // $posts = DB::select('select * from posts');
+
+        $posts = Post::orderBy('id')->paginate(10);
+        return \view('posts.index' , ['posts' => $posts]);
     }
 
     /**
@@ -24,7 +32,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -41,12 +49,13 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return \view('posts.show', ['post' => $post]);
     }
 
     /**

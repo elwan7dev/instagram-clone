@@ -22,6 +22,7 @@
     - $ php artisan make:controller ControllerName --resource
 * Specifying The Resource Model - If you are using route model binding and would 
      like   the resource controller's methods to type-hint a model instance:
+     
     - $ php artisan make:controller ControllerName --resource --model=ModelName
 
 ## Generate Model

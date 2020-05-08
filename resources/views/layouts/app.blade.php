@@ -14,9 +14,13 @@
 </head>
 <body>
     @include('inc.navbar')
-
+    
     <main class="py-4">
+        @include('inc.messages')
         @yield('content')
     </main>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

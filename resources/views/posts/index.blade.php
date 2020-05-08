@@ -4,9 +4,9 @@
 @section('content')
     <div class="container">
         @if (count($posts) > 0)
-            <h2>Posts</h2>  
+            <h2>Posts</h2> 
             @foreach ($posts as $post)
-            <div class="card mb-3">
+            <div class="card mb-3 shadow-sm">
                 <div class="card-body">
                     <h4 class="card-title">
                         <a href="/posts/{{$post->id}}">{{$post->title}}</a>

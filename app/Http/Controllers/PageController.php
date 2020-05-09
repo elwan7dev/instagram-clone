@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    
     // practice - Routs & controllers 
     public function index()
     {

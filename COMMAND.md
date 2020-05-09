@@ -5,12 +5,21 @@
 - $ php artisan serve
 
 ---
+## Generate basic scaffolding...
+- $ composer require laravel/ui
+- $ php artisan ui bootstrap
+- $ npm install && npm run dev
+
+
 ## Authintecation Scaffold
 - $ composer require laravel/ui
 - $ php artisan ui bootstrap --auth
 - $ npm install && npm run dev
 
 ---
+
+
+
 ## Database
 <this is comment>
 - $ php artisan migrate

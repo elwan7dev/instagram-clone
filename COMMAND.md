@@ -52,3 +52,6 @@
 
 ## Show Routes List
 - $ php artisan route:list
+
+## Composer
+- $ composer update

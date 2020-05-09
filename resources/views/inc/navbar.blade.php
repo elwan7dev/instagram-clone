@@ -16,7 +16,7 @@
               <a class="nav-link" href="{{url('/services')}}">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url('/posts')}}">Blog</a>
+              <a class="nav-link" href="{{route('posts.index')}}">Blog</a>
             </li>
           </ul>
           <ul class="navbar-nav">
@@ -28,9 +28,10 @@
                 Username
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Edit Profile</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Logout</a>
               </div>
             </li>
           </ul>

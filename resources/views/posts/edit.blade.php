@@ -1,15 +1,19 @@
 @extends('layouts.app')
-@section('title' , 'Create Post')
+@section('title' , 'Edit Post')
 
 @section('content')
     <div class="container">
-        <h2>Create a Post</h2>  
-        <form action="{{ route('posts.store') }}" method="POST">
+        <h2>Edit Post</h2>
+        {{--['post' = $post->id] = ['post'=>$post] it use primary key of this object--}} 
+        {{-- The route helper will automatically extract the model's primary key: --}}
+        {{-- /posts/{{$post->id}} --}}
+        <form action="{{ route('posts.update', ['post'=>$post]) }}" method="POST">
+            @method('PUT')
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" 
-                placeholder="Title" id="title" autofocus  autocomplete required>
+                value="{{$post->title}} " id="title" autofocus required>
                 @error('title')     
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -19,7 +23,7 @@
             <div class="form-group">
                 <label for="article-ckeditor">Body</label>
                 <textarea rows="10" name="body" class="form-control @error('body') is-invalid @enderror"
-                placeholder="Body Text" id="article-ckeditor" required></textarea>
+                id="article-ckeditor" required>{{$post->body}}</textarea>
                 @error('body')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

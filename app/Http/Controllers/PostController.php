@@ -63,6 +63,7 @@ class PostController extends Controller
         $post = new Post();
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->user_id = \auth()->user()->id;
         $post->save();
 
         return \redirect('/posts')->with('success' , 'Post is created');
@@ -127,4 +128,6 @@ class PostController extends Controller
         $post->delete();
         return \redirect('/posts')->with('success' , 'Post Deleted');
     }
+
+    
 }

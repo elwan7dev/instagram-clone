@@ -12,7 +12,7 @@
                         <a href="/posts/{{$post->id}}">{{$post->title}}</a>
                     </h4>
                     <h6 class="card-subtitle mb-3 text-muted">
-                        Created at: {{$post->created_at}} 
+                        Created at: {{$post->created_at}} by {{$post->user->name}}
                     </h6>
                     <p class="card-text">{{$post->body}}</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>

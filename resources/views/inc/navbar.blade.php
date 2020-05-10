@@ -37,6 +37,9 @@
                       </li>
                   @endif
               @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}">Profile</a>
+                    </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('posts.create') }}">Create Post</a>
                   </li>

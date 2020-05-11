@@ -3,27 +3,106 @@
 
 @section('content')
     <div class="container">
-        @if (count($posts) > 0)
-            <h2>Posts</h2> 
-            @foreach ($posts as $post)
-            <div class="card mb-3 shadow-sm">
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="/posts/{{$post->id}}">{{$post->title}}</a>
-                    </h4>
-                    <h6 class="card-subtitle mb-3 text-muted">
-                        Created at: {{$post->created_at}} by {{$post->user->name}}
-                    </h6>
-                    <p class="card-text">{{$post->body}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="posts">
+                    @if (count($posts) > 0)
+                        @foreach ($posts as $post)
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="#">{{$post->user->name}}</a>
+                                    {{-- <a href="/posts/{{$post->id}}">{{$post->title}}</a> --}}
+                                </h4>
+                                <a href="/posts/{{$post->id}}" title="">
+                                    <h6 class="card-subtitle mb-3 text-muted">
+                                    {{$post->created_at}}
+                                    </h6>
+                                </a>
+                                <p class="card-text">{{$post->body}}</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        @endforeach
+                    
+                        @else
+                        <div class="alert alert-warning" role="alert">No Posts Found</div>
+                    @endif
                 </div>
             </div>
-            @endforeach
-            
-        {{ $posts->links() }}
-        @else
-            <div class="alert alert-warning" role="alert">No Posts Found</div>
-        @endif
+            <div class="col-md-4">
+                <div class="right-content ">
+                    <div class="user-profile">
+                        {{-- user photo --}}
+                        <div class="RR-M-  _2NjG_" role="button" tabindex="0">
+                            <canvas class="CfWVH" height="66" width="66" style="position: absolute; top: -5px; left: -5px; width: 66px; height: 66px;">
+                            </canvas>
+                            <a class="_2dbep qNELH kIKUG" href="/ahmedgalalelwan/" style="width: 56px; height: 56px;">
+                                <img alt="ahmedgalalelwan's profile picture" class="_6q-tv" src="">
+                            </a>
+                        </div>
+                        {{-- user-name --}}
+                        <div class="_0v2O4 StX70">
+                            <div class="SKguc">
+                                <a class="gmFkV" href="/ahmedgalalelwan/">ahmedgalalelwan</a>
+                            </div>
+                            <div class="f5Yes oL_O8">
+                                Ahmed Galal Elwan
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-none d-xl-block suggest">
+                        <div class="card shadow-sm ">
+                            <div class="card-header">
+                                Suggestions For You
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+    
+                    </div>
+                    <div class="links">
+                        <nav class="uxKLF">
+                            <ul class="ixdEe _9Rlzb">
+                                <li class="K5OFK">
+                                    <a class="l93RR" href="https://about.instagram.com/about-us" rel="nofollow noopener noreferrer" target="_blank">About</a>
+                                </li>
+                                <li class="K5OFK">
+                                    <a class="l93RR" href="https://help.instagram.com/">Help</a>
+                                </li>
+                                <li class="K5OFK">
+                                    <a class="l93RR" href="https://instagram-press.com/">Press</a>
+                                </li>
+                                <li class="K5OFK">
+                                    <a class="l93RR" href="/developer/">API</a>
+                                </li>
+                                <li class="K5OFK">
+                                    <a class="l93RR" href="/about/jobs/">Jobs</a>
+                                </li>
+                                <li class="K5OFK">
+                                    <a class="l93RR" href="/legal/privacy/">Privacy</a>
+                                </li>
+                                <li class="K5OFK">
+                                    <span class="_3G4x7  l93RR">Language
+                                        <select aria-label="Switch Display Language" class="hztqj">
+                                            <option value="af">Afrikaans</option>
+                                            <option value="cs">Čeština</option>
+                                        </select>
+                                        
+                                    </span>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+        
     </div>
     
 @endsection

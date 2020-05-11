@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
-class HomeController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -29,6 +29,6 @@ class HomeController extends Controller
         // get the user with its id
         $user = User::find($user_id);
         
-        return view('home' , ['posts' => $user->posts]);
+        return view('profile' , ['posts' => $user->posts]);
     }
 }

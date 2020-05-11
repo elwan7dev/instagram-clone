@@ -1,3 +1,5 @@
+
+@if (session('success') || session('error'))
 <div class="container">
     {{-- MSG post is created --}}
     @if (session('success'))
@@ -18,3 +20,4 @@
     </div>
     @endif
 </div>
+@endif

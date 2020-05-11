@@ -6,6 +6,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" href="{{ asset('instagram-logo.png') }}">
+
 
     <title>{{ config('app.name', 'Laravel') }} @yield('title')</title>
 
@@ -19,7 +21,7 @@
     <!-- Bootsrap Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- custom styles --}}
-    {{-- <link rel="stylesheet" href="{{ asset('css/custom.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 <body>
     <div id="app">

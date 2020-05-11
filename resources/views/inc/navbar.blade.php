@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark shadow-sm">
   <div class="container">
       <a class="navbar-brand" href="{{ url('/') }}">
           {{ config('app.name', 'Laravel') }}
@@ -10,19 +10,21 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/') }}">Home</a>
-            </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/about')}}">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url('/services')}}">Services</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('posts.index')}}">Blog</a>
-            </li>
           </ul>
+          <form class="form-inline">
+            <div class="search">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              {{-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> --}}
+            </div>
+            
+          </form>
 
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -37,15 +39,22 @@
                       </li>
                   @endif
               @else
+                  <a href="{{ route('profile') }}" class="nav-link" title="Profile">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">Profile</a>
-                    </li>
+                      <img src="{{ asset('avatar.jpg') }}" width="20" height="20" class="d-inline-block align-middle" alt="user poto">
+                        {{ Auth::user()->name }}
+                        {{-- <a class="nav-link" title="Profile" href="{{ route('home') }}"></a> --}}
+                    </li> 
+                  </a>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">Home</a>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('posts.create') }}">Create Post</a>
                   </li>
                   <li class="nav-item dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                          {{ Auth::user()->name }} <span class="caret"></span>
+                          <span class="caret"></span>
                       </a>
 
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

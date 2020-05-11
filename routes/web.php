@@ -18,7 +18,7 @@ Route::get('/welcome', function () {
 });
 
 
-Route::get('/', 'PageController@index');
+Route::get('/', 'PostController@index');
 
 Route::get('/about', 'PageController@about');
 
@@ -28,4 +28,4 @@ Route::resource('posts', 'PostController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile', 'ProfileController@index')->name('profile');

@@ -9,7 +9,14 @@ nav .container .search input{
     border-radius: 50%;
 }
 
-
 .py-4 {
-    padding-top: 4.5rem !important;
+    padding-top: 6.5rem !important;
+}
+
+.container .right-content {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 6.5rem;
+    padding-top: 50px;
+
 }

@@ -32,7 +32,7 @@ class PostController extends Controller
         // $posts = Post::where('id' , '2')->get();
         // $posts = DB::select('select * from posts');
 
-        $posts = Post::orderBy('created_at' , 'desc')->paginate(4);
+        $posts = Post::orderBy('created_at' , 'desc')->get();
         return \view('posts.index' , ['posts' => $posts]);
     }
 

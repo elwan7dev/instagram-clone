@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <h2>Create a Post</h2>  
-        <form action="{{ route('posts.store') }}" method="POST">
+        <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
@@ -26,6 +26,17 @@
                     </span>
                 @enderror
             </div>
+            <div class="custom-file mb-3">
+              
+                <input type="file" class="custom-file-input @error('image') is-invalid @enderror" name="image" id="validatedCustomFile" required>
+                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                @error('image')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror 
+            </div>
+            
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

@@ -7,12 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('instagram-logo.png') }}">
-
-
     <title>{{ config('app.name', 'Laravel') }} @yield('title')</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -32,5 +27,12 @@
             @yield('content')
         </main>
     </div>
+
+     <!-- Scripts -->
+     <script src="{{ asset('js/app.js') }}" defer></script>
+     {{-- bs-custom-file-input pakage --}}
+     <script src="{{ asset('js/bs-custom-file-input.min.js') }}" defer></script>
+     {{-- custom script --}}
+     <script src="{{ asset('js/custom.js') }}" defer></script>
 </body>
 </html>

@@ -57,16 +57,33 @@ class PostController extends Controller
         // validation
         $this->validate($request , [
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
         ]);
+
+        // Handle file to upload
+        if ($file = $request->file('image')) {
+            // Get the file name with extension
+            $filenameWithExt = $file->getClientOriginalName();
+            // Get just filename 
+            $filename = \pathinfo($filenameWithExt , PATHINFO_FILENAME);
+            // Get just extension
+            $extension = $file->extension();
+            // pattern for fileToStore
+            $filenameToStore = $filename ."_". date('YmdHis') . "." . $extension;
+            $path = $file->storeAs('public/images' , $filenameToStore);
+         }
+  
         // create new post obj
         $post = new Post();
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->image = $filenameToStore;
         $post->user_id = \auth()->user()->id;
         $post->save();
 
-        return \redirect('/posts')->with('success' , 'Post is created');
+        return \redirect('/')->with('success' , 'Post is created');
     }
 
     /**

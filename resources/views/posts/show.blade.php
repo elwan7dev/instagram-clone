@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <a href="{{ route('posts.index')}}" class="btn btn-outline-dark mb-2">Go Back</a>
+                <a href="{{ URL::previous() }}" class="btn btn-outline-dark mb-2">Go Back</a>
                 <div class="card mb-3 shadow-lg">
                     <div class="card-body">
                         <h4 class="card-title">

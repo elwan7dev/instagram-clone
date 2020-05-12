@@ -8,19 +8,30 @@
                 <div class="posts">
                     @if (count($posts) > 0)
                         @foreach ($posts as $post)
-                        <div class="card mb-3 shadow-sm">
+                        <div class="card mb-4 shadow-sm">
                             <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href="#">{{$post->user->name}}</a>
-                                    {{-- <a href="/posts/{{$post->id}}">{{$post->title}}</a> --}}
-                                </h4>
-                                <a href="/posts/{{$post->id}}" title="">
-                                    <h6 class="card-subtitle mb-3 text-muted">
-                                    {{$post->created_at}}
+                                <div class="post-data">
+                                    <h4 class="card-title">
+                                        <a href="#">{{$post->user->name}}</a>
+                                    </h4>
+                                    
+                                    <h6 class="card-subtitle mb-2 ">
+                                        <a href="/posts/{{$post->id}}" class="text-muted" 
+                                            title="{{ date('l, M d, o \a\t g:i A', strtotime($post->created_at)) }} ">
+                                            {{ date('M d', strtotime($post->created_at))}} 
+                                        </a>
                                     </h6>
-                                </a>
-                                <p class="card-text">{{$post->body}}</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    
+                                    <p class="card-text mb-1">{{$post->body}}</p>
+                                </div>
+                                
+                                <div class="post-image">
+                                    <a href="/posts/{{$post->id}}">
+                                        <img src="/storage/images/{{$post->image}} " alt="Post Image" class="mb-2" style="width: 100%">
+                                    </a>
+                                </div>
+                                
+                                {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
                             </div>
                         </div>
                         @endforeach

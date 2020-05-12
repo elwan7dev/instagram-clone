@@ -2,6 +2,7 @@ body {
     font-size: 16px;
 }
 
+/* Start Index posts page  */
 nav .container .search input{
     width: 330px;
 }
@@ -13,6 +14,15 @@ nav .container .search input{
     padding-top: 6.5rem !important;
 }
 
+.container .posts .post-data{
+    padding: 1.25rem;
+    padding-bottom: 0;
+}
+
+.container .posts .card-body {
+    padding: 0;
+    padding-bottom: 1.25rem;
+}
 .container .right-content {
     position: -webkit-sticky;
     position: sticky;
@@ -20,3 +30,4 @@ nav .container .search input{
     padding-top: 50px;
 
 }
+/* End index posts page */

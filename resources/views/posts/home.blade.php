@@ -27,7 +27,7 @@
                                 
                                 <div class="post-image">
                                     <a href="/posts/{{$post->id}}">
-                                        <img src="/storage/images/{{$post->image}} " alt="Post Image" class="mb-2" style="width: 100%">
+                                        <img src="/storage/images/{{$post->image}}" alt="Post Image" class="mb-2" style="width: 100%">
                                     </a>
                                 </div>
                                 

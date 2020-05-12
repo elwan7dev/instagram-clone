@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Storage;
+use App\User;
+
 class PostController extends Controller
 {
     /**
@@ -19,7 +22,7 @@ class PostController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource - App homepage
      *
      * @return \Illuminate\Http\Response
      */
@@ -33,9 +36,23 @@ class PostController extends Controller
         // $posts = DB::select('select * from posts');
 
         $posts = Post::orderBy('created_at' , 'desc')->get();
-        return \view('posts.index' , ['posts' => $posts]);
+        return \view('posts.home' , ['posts' => $posts]);
     }
 
+    /**
+     * Show profile posts of the usesr.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function profile()
+    {
+        // get user id
+        $user_id = \auth()->user()->id;
+        // get the user with its id
+        $user = User::find($user_id);
+        
+        return view('posts.profile' , ['posts' => $user->posts]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -71,7 +88,7 @@ class PostController extends Controller
             // Get just extension
             $extension = $file->extension();
             // pattern for fileToStore
-            $filenameToStore = $filename ."_". date('YmdHis') . "." . $extension;
+            $filenameToStore = date('YmdHis') . "." . $extension;
             $path = $file->storeAs('public/images' , $filenameToStore);
          }
   
@@ -148,9 +165,10 @@ class PostController extends Controller
         if (\auth()->user()->id !== $post->user_id) {
             return \redirect('/posts')->with('error', 'Unauthorized Page');
         }
+        // delete the file from storage/app/public/images
+        Storage::delete("public/images/$post->image");
         $post->delete();
-        return \redirect('/posts')->with('success' , 'Post Deleted');
+        return \redirect('/')->with('success' , 'Post Deleted');
     }
-
     
 }

@@ -28,4 +28,4 @@ Route::resource('posts', 'PostController');
 
 Auth::routes();
 
-Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::get('/profile', 'PostController@profile')->name('profile');

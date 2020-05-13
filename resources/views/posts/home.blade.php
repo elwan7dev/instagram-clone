@@ -9,29 +9,32 @@
                     @if (count($posts) > 0)
                         @foreach ($posts as $post)
                         <div class="card mb-4 shadow-sm">
-                            <div class="card-body">
+                            <div class="card-header">
+                                <div class="profile-img mr-2">
+                                    <a class="" href="#">
+                                        <img src="{{ asset('avatar.jpg') }}"
+                                            alt="{{Auth::user()->name}}'s profile picture">
+                                    </a>
+                                </div>
                                 <div class="post-data">
-                                    <h4 class="card-title">
+                                    <h4>
                                         <a href="#">{{$post->user->name}}</a>
                                     </h4>
-                                    
-                                    <h6 class="card-subtitle mb-2 ">
+                                    <h6>
                                         <a href="/posts/{{$post->id}}" class="text-muted" 
                                             title="{{ date('l, M d, o \a\t g:i A', strtotime($post->created_at)) }} ">
                                             {{ date('M d', strtotime($post->created_at))}} 
                                         </a>
                                     </h6>
-                                    
-                                    <p class="card-text mb-1">{{$post->body}}</p>
                                 </div>
-                                
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{$post->body}}</p>
                                 <div class="post-image">
                                     <a href="/posts/{{$post->id}}">
                                         <img src="/storage/images/{{$post->image}}" alt="Post Image" class="mb-2" style="width: 100%">
                                     </a>
                                 </div>
-                                
-                                {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
                             </div>
                         </div>
                         @endforeach
@@ -43,77 +46,95 @@
             </div>
             <div class="col-md-4">
                 <div class="right-content ">
-                    <div class="user-profile">
-                        {{-- user photo --}}
-                        <div class="RR-M-  _2NjG_" role="button" tabindex="0">
-                            <canvas class="CfWVH" height="66" width="66" style="position: absolute; top: -5px; left: -5px; width: 66px; height: 66px;">
-                            </canvas>
-                            <a class="_2dbep qNELH kIKUG" href="/ahmedgalalelwan/" style="width: 56px; height: 56px;">
-                                <img alt="ahmedgalalelwan's profile picture" class="_6q-tv" src="">
+                    <div class="user-profile mb-3">
+                        <div class="profile-img mr-2">
+                           
+                            <a class="" href="/profile">
+                                <img src="{{ asset('avatar.jpg') }}"
+                                    alt="{{Auth::user()->name}}'s profile picture" >
                             </a>
                         </div>
-                        {{-- user-name --}}
-                        <div class="_0v2O4 StX70">
-                            <div class="SKguc">
-                                <a class="gmFkV" href="/ahmedgalalelwan/">ahmedgalalelwan</a>
-                            </div>
-                            <div class="f5Yes oL_O8">
-                                Ahmed Galal Elwan
-                            </div>
-                        </div>
+                        <div class="profile-info">
+                            <h4>
+                                <a href='/profile' class="user-name"> {{Auth::user()->name}}</a>
+                            </h4>
+                            <h6>
+                                {{Auth::user()->name}}
+                            </h6>
+                        </div>  
                     </div>
-                    <div class="d-none d-xl-block suggest">
-                        <div class="card shadow-sm ">
-                            <div class="card-header">
+                    <div class="suggest d-none d-xl-block ">
+                        <div class="card ">
+                            <div class="card-header mb-1 mt-3 p-0">
+                            
                                 Suggestions For You
+                                <a href="#" class="float-right">
+                                    <span>See all</span>
+                                </a>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <div class="card-body mb-2 p-0">
+                                <ul class="users-list users-list-in-card">
+                                    {{-- @foreach ($collection as $item) --}}
+                                    <li class='user'>
+                                        <div class='user-img mr-2'>
+                                            <img src="{{ asset('avatar.jpg')}} " alt='Product Image' class='d-inline-block align-middle'>
+                                        </div>
+                                        <div class='user-info'>
+                                            <h5>
+                                                <a href='#' >User-Name</a>
+                                            </h5>
+                                            <a href="#">
+                                                <span class='badge badge-primary float-right'>Follow</span>
+                                            </a>
+                                                 
+                                            <h6> User-FullName</h6>
+                                        </div>
+                                    </li> 
+                                    
+                                    {{-- @endforeach --}}
+                                </ul>
                             </div>
                         </div>
-    
                     </div>
-                    <div class="links">
-                        <nav class="uxKLF">
-                            <ul class="ixdEe _9Rlzb">
-                                <li class="K5OFK">
-                                    <a class="l93RR" href="https://about.instagram.com/about-us" rel="nofollow noopener noreferrer" target="_blank">About</a>
+                    <div class="links pb-4">
+                        <nav class="navbar navbar-expand-sm">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" rel="nofollow noopener noreferrer" target="_blank">About</a>
                                 </li>
-                                <li class="K5OFK">
-                                    <a class="l93RR" href="https://help.instagram.com/">Help</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" rel="nofollow noopener noreferrer" target="_blank">Services</a>
                                 </li>
-                                <li class="K5OFK">
-                                    <a class="l93RR" href="https://instagram-press.com/">Press</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" rel="nofollow noopener noreferrer" target="_blank">Help</a>
                                 </li>
-                                <li class="K5OFK">
-                                    <a class="l93RR" href="/developer/">API</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" rel="nofollow noopener noreferrer" target="_blank">Press</a>
                                 </li>
-                                <li class="K5OFK">
-                                    <a class="l93RR" href="/about/jobs/">Jobs</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" rel="nofollow noopener noreferrer" target="_blank">Privacy</a>
                                 </li>
-                                <li class="K5OFK">
-                                    <a class="l93RR" href="/legal/privacy/">Privacy</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" rel="nofollow noopener noreferrer" target="_blank">Terms</a>
                                 </li>
-                                <li class="K5OFK">
-                                    <span class="_3G4x7  l93RR">Language
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" rel="nofollow noopener noreferrer" target="_blank">Top Accounts</a>
+                                </li>
+                               
+                               {{--  <li class="nav-item">
+                                    <span class="nav-link">Language
                                         <select aria-label="Switch Display Language" class="hztqj">
                                             <option value="af">Afrikaans</option>
                                             <option value="cs">Čeština</option>
                                         </select>
-                                        
                                     </span>
-                                </li>
+                                </li> --}}
                             </ul>
                         </nav>
+                        <span class="footer">© 2020 INSTAGRAM FROM ELWAN7DEV</span>
                     </div>
                 </div>
-                
-                
             </div>
         </div>
-        
     </div>
-    
 @endsection

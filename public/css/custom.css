@@ -24,9 +24,15 @@ nav .container .search input{
 .posts .card-header{
     border-bottom: none;
 }
-
+.posts .post-data {
+    padding-top: 7px;
+}
+.posts .card-header h5 {
+    font-size: 14px;
+    font-weight: 600;
+}
 .posts .card-header h6{
-    margin-top: -0.500rem;
+    margin-top: -0.400rem;
     margin-bottom: 0;
     font-size: 0.8rem;
     padding-left: 2px;
@@ -55,7 +61,7 @@ nav .container .search input{
     position: -webkit-sticky;
     position: sticky;
     top: 6.5rem;
-    padding-top: 50px;
+    padding-top: 30px;
 
 }
 
@@ -74,7 +80,7 @@ nav .container .search input{
 .right-content .profile-info{
     padding: 8px;
 }
-.right-content .profile-info h4{
+.right-content .profile-info h5{
   margin-bottom: 0;
 }
 .right-content .profile-info h6{

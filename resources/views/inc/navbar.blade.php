@@ -41,8 +41,8 @@
               @else
                   <a href="{{ route('profile') }}" class="nav-link" title="Profile">
                     <li class="nav-item">
-                      <img src="{{ asset('avatar.jpg') }}" width="20" height="20" class="d-inline-block align-middle" alt="user poto">
-                        {{ Auth::user()->name }}
+                      <img src="/storage/avatars/{{Auth::user()->avatar}} " width="20" height="20" class="d-inline-block align-middle" alt="user poto">
+                        {{ Auth::user()->user_name }}
                         {{-- <a class="nav-link" title="Profile" href="{{ route('home') }}"></a> --}}
                     </li> 
                   </a>
@@ -58,7 +58,7 @@
                       </a>
 
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Edit Profile</a>
+                          <a class="dropdown-item" href="{{ route('users.edit', ['user'=>Auth::user()->id])}} ">Edit Profile</a>
                           <a class="dropdown-item" href="#">Settings</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="{{ route('logout') }}"

@@ -29,3 +29,7 @@ Route::resource('posts', 'PostController');
 Auth::routes();
 
 Route::get('/profile', 'PostController@profile')->name('profile');
+
+Route::resource('users', 'UserController')->except([
+    'create', 'store' , 'show'
+]);

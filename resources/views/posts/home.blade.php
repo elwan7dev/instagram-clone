@@ -12,14 +12,14 @@
                             <div class="card-header">
                                 <div class="profile-img mr-2">
                                     <a class="" href="#">
-                                        <img src="{{ asset('avatar.jpg') }}"
-                                            alt="{{Auth::user()->name}}'s profile picture">
+                                        <img src="/storage/avatars/{{$post->user->avatar}} "
+                                            alt="{{Auth::user()->full_name}}'s profile picture">
                                     </a>
                                 </div>
                                 <div class="post-data">
-                                    <h4>
-                                        <a href="#">{{$post->user->name}}</a>
-                                    </h4>
+                                    <h5>
+                                        <a href="#">{{$post->user->full_name}}</a>
+                                    </h5>
                                     <h6>
                                         <a href="/posts/{{$post->id}}" class="text-muted" 
                                             title="{{ date('l, M d, o \a\t g:i A', strtotime($post->created_at)) }} ">
@@ -46,20 +46,20 @@
             </div>
             <div class="col-md-4">
                 <div class="right-content ">
-                    <div class="user-profile mb-3">
+                    <div class="user-profile">
                         <div class="profile-img mr-2">
                            
                             <a class="" href="/profile">
-                                <img src="{{ asset('avatar.jpg') }}"
-                                    alt="{{Auth::user()->name}}'s profile picture" >
+                                <img src="/storage/avatars/{{Auth::user()->avatar}}"
+                                    alt="{{Auth::user()->full_name}}'s profile picture" >
                             </a>
                         </div>
                         <div class="profile-info">
-                            <h4>
-                                <a href='/profile' class="user-name"> {{Auth::user()->name}}</a>
-                            </h4>
+                            <h5>
+                                <a href='/profile' class="user-name"> {{Auth::user()->user_name}}</a>
+                            </h5>
                             <h6>
-                                {{Auth::user()->name}}
+                                {{Auth::user()->full_name}}
                             </h6>
                         </div>  
                     </div>
@@ -74,24 +74,25 @@
                             </div>
                             <div class="card-body mb-2 p-0">
                                 <ul class="users-list users-list-in-card">
-                                    {{-- @foreach ($collection as $item) --}}
-                                    <li class='user'>
-                                        <div class='user-img mr-2'>
-                                            <img src="{{ asset('avatar.jpg')}} " alt='Product Image' class='d-inline-block align-middle'>
-                                        </div>
-                                        <div class='user-info'>
-                                            <h5>
-                                                <a href='#' >User-Name</a>
-                                            </h5>
-                                            <a href="#">
-                                                <span class='badge badge-primary float-right'>Follow</span>
-                                            </a>
-                                                 
-                                            <h6> User-FullName</h6>
-                                        </div>
-                                    </li> 
-                                    
-                                    {{-- @endforeach --}}
+                                    @if (count($users) > 0)
+                                        @foreach ($users as $user)
+                                        <li class='user'>
+                                            <div class='user-img mr-2'>
+                                                <img src="/storage/avatars/{{$user->avatar}}" alt='Product Image' class='d-inline-block align-middle'>
+                                            </div>
+                                            <div class='user-info'>
+                                                <h5>
+                                                    <a href='#' >{{$user->user_name}}</a>
+                                                </h5>
+                                                <a href="#">
+                                                    <span class='badge badge-primary float-right'>Follow</span>
+                                                </a>
+                                                    
+                                                <h6>{{$user->full_name}}</h6>
+                                            </div>
+                                        </li> 
+                                        @endforeach
+                                    @endif
                                 </ul>
                             </div>
                         </div>

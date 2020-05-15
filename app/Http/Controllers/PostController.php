@@ -36,7 +36,12 @@ class PostController extends Controller
         // $posts = DB::select('select * from posts');
 
         $posts = Post::orderBy('created_at' , 'desc')->get();
-        return \view('posts.home' , ['posts' => $posts]);
+        $current_user = \auth()->user()->id ;
+        $users = User::orderBy('created_at' , 'desc')
+                            ->where('id', '!=', $current_user)
+                            ->limit(5)
+                            ->get();
+        return \view('posts.home' , ['posts' => $posts , 'users' => $users]);
     }
 
     /**
@@ -50,6 +55,8 @@ class PostController extends Controller
         $user_id = \auth()->user()->id;
         // get the user with its id
         $user = User::find($user_id);
+
+        // $orderedPosts = $user->posts()->orderBy('created_at' , 'acs')->get();
         
         return view('posts.profile' , ['posts' => $user->posts]);
     }
@@ -112,7 +119,13 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return \view('posts.show', ['post' => $post]);
+        if (!empty($post)) { 
+            return \view('posts.show', ['post' => $post]);
+
+        }else {
+            return \redirect('/')->with('error', 'No Such Id');
+        }
+
     }
 
     /**
@@ -124,9 +137,14 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        if (\auth()->user()->id !== $post->user_id) {
-            return \redirect('/posts')->with('error', 'Unauthorized Page');
+        if (!empty($post)) {
+            if (\auth()->user()->id !== $post->user_id) {
+                return \redirect('/posts')->with('error', 'Unauthorized Page');
+            }
+        }else {
+            return \redirect('/')->with('error', 'No Such Id');
         }
+        
         return \view('posts.edit', ['post' => $post]);
     }
 

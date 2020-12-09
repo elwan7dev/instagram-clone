@@ -12,14 +12,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/* 
-Route::get('/', function () {
+
+Route::get('/welcome', function () {
     return view('welcome');
-}); */
+});
 
 
-Route::get('/', 'PageController@index');
+Route::get('/', 'PostController@index');
 
 Route::get('/about', 'PageController@about');
 
 Route::get('/services', 'PageController@service');
+
+Route::resource('posts', 'PostController');
+
+Auth::routes();
+
+Route::get('/profile', 'PostController@profile')->name('profile');
+
+Route::resource('users', 'UserController')->except([
+    'create', 'store' , 'show'
+]);

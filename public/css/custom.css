@@ -1,0 +1,156 @@
+body {
+    font-size: 16px;
+}
+.py-4 {
+    padding-top: 6.5rem !important;
+}
+
+/* start  Nav-bar  */
+nav .container .search input{
+    width: 404px;
+}
+.navbar-nav img {
+    border-radius: 50%;
+}
+
+/* End Nav-bar */
+
+/* Start Index posts page  */
+
+.container .card,
+.card .card-header {
+    background-color: #f8fafc;
+}
+.posts .card-header{
+    border-bottom: none;
+}
+.posts .post-data {
+    padding-top: 7px;
+}
+.posts .card-header h5 {
+    font-size: 14px;
+    font-weight: 600;
+}
+.posts .card-header h6{
+    margin-top: -0.400rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    padding-left: 2px;
+}
+.posts .profile-img img {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border: 1px solid #aaa;
+    width: 40px;
+    height: 40px;
+}
+
+
+.posts .card-body p{
+    margin-bottom: 0.5rem;
+    padding: 0 1rem;
+    
+}
+
+.container .posts .card-body {
+    padding: 0;
+    padding-bottom: 1.25rem;
+}
+.container .right-content {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 6.5rem;
+    padding-top: 30px;
+
+}
+
+.right-content .profile-img,
+.posts .profile-img{
+    float: left;
+}
+.right-content .profile-img img{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border: 1px solid #aaa;
+    width: 60px;
+    height: 60px;
+}
+.right-content .profile-info{
+    padding: 8px;
+}
+.right-content .profile-info h5{
+  margin-bottom: 0;
+}
+.right-content .profile-info h6{
+    color: #6c757d;
+}
+
+
+.right-content .suggest .card {
+    border: none;
+
+}
+.right-content .suggest .card-header{
+    /* font-weight: bold; */
+    color: #6c757d;
+    border-bottom: none;
+}
+.right-content .suggest .users-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.suggest .users-list .user {
+    border-radius: .25rem;
+    padding-top: 5px;
+}
+.suggest .users-list-in-card .user{
+    border-radius: 0;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.users-list .user .user-img{
+    float: left;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    
+}
+
+.users-list .user img{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border: 1px solid #aaa;
+    width: 100%;
+
+}
+.users-list .user-info {
+    padding: 3px;
+}
+.users-list .user-info h5{
+    margin-bottom: 0;
+}
+.users-list .user-info h6{
+   color: #6c757d;
+}
+
+.right-content .links .navbar {
+    padding: 0;
+}
+
+.right-content .links .navbar a {
+    color: #9fa2a5 ;
+    font-size: 12px;
+}
+.right-content .links .navbar .nav-link{
+    padding-left: 0;
+}
+.right-content .links .footer {
+    color: #9fa2a5;
+    display: block;
+    font-size: 12px;
+    
+}
+/* End index posts page  #6c757d */
